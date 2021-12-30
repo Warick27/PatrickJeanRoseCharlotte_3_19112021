@@ -1,0 +1,18 @@
+body {
+  background: black;
+}
+
+* {
+  box-sizing: border-box;
+  color: black;
+}
+* h1,
+* h2,
+* h3 {
+  font-family: "Shrikhand", sans-serif;
+}
+* p {
+  font-family: "Roboto", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */
