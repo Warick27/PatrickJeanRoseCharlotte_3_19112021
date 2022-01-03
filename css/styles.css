@@ -1,18 +1,25 @@
 body {
-  background: black;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
-  color: black;
 }
-* h1,
-* h2,
-* h3 {
+
+h1,
+h2,
+h3 {
   font-family: "Shrikhand", sans-serif;
 }
-* p {
+
+p {
   font-family: "Roboto", sans-serif;
+}
+
+.restaurants img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
 }
 
 /*# sourceMappingURL=styles.css.map */
