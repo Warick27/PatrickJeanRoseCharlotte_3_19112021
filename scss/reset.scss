@@ -3,6 +3,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+
 p,
 figure,
 figcaption {
@@ -12,7 +13,6 @@ figcaption {
   font-size: 100%;
   vertical-align: baseline;
 }
-
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -27,11 +27,9 @@ nav,
 section {
   display: block;
 }
-
 body {
   line-height: 1;
 }
-
 body,
 html,
 aside,
@@ -39,18 +37,15 @@ h2 {
   margin: 0;
   padding: 0;
 }
-
 ol,
 ul {
   list-style: none;
   padding: 0;
 }
-
 blockquote,
 q {
   quotes: none;
 }
-
 blockquote:before,
 blockquote:after,
 q:before,
@@ -63,5 +58,3 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-/*# sourceMappingURL=reset.css.map */

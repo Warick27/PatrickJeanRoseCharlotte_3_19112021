@@ -1,27 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
 body {
   margin: 0;
+  padding: 0;
 }
 * {
   box-sizing: border-box;
 }
-
+a {
+  text-decoration: none;
+}
 $primaire: #9356dc;
 $secondaire: #ff79da;
 $tertiaire: #99e2d0;
 
-h1,
-h2,
-h3 {
+@mixin fontprimaire {
   font-family: "Shrikhand", sans-serif;
 }
-p {
+
+@mixin fontsecondaire {
   font-family: "Roboto", sans-serif;
 }
 
-.restaurants {
-  img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+h1 {
+  @include fontprimaire;
+}
+p,
+h2,
+h3 {
+  @include fontsecondaire;
+}
+
+@mixin disposition(
+  $type: flex,
+  $sens: column,
+  $justif: flex-start,
+  $align: flex-start
+) {
+  display: $type;
+  flex-direction: $sens;
+  justify-content: $justif;
+  align-content: $align;
+}
+
+/*@mixin sens($sens) {
+  @if ($sens==top) {
+    $sens: "margin-top";
+  }
+  else {
+    @if ($sens==right) {
+      $sens: "margin-right";
+    }
+  }
+  @else {
+    @if ($sens==bottom) {
+      $sens: "margin-bottom";
+    }
+  }
+  @else {
+    @if ($sens==left) {
+      $sens: "margin-left";
+    }
+  }
+  @else {
+    $sens: "margin";
+  }
+}*/
+
+@mixin marges($marg: 10px) {
+  margin: $marg;
+}
+@mixin paddes($pad: 10px) {
+  padding: $pad;
+}
+@mixin largeur($large: 100%) {
+  width: $large;
+}
+@mixin hauteur($haute: 100%) {
+  height: $haute;
+}
+@mixin localisation($local: absolute, $abscisse: 0, $ordonne: 0) {
+  position: $local;
+  x: $abscisse;
+  y: $ordonne;
+}
+/* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
+@mixin rayon($bord) {
+  border-radius: $bord;
+}
+
+#logo {
+  display: flex;
+  width: 200px;
+  height: auto;
+  @include paddes(20px);
+  @include marges(auto);
+}
+.accroche {
+  @include disposition(flex, column, center, center);
+  background-color: lighten(darkgrey, 29);
+  &__localisation {
+    @include disposition(flex, row, center, center);
+    @include largeur;
+    @include hauteur(50px);
+    margin: 10px 0;
+    text-align: center;
+    @include fontsecondaire;
+    font-weight: 500;
+    > i {
+      margin-right: 15px;
+    }
   }
 }
+
+.pitch {
+  &__textes {
+    text-align: center;
+    @include marges(20px);
+  }
+  > :first-child {
+    font-weight: 600;
+    font-size: 26px;
+  }
+  :last-child {
+    font-size: small;
+    font-weight: lighter;
+    color: lighten($color: #000000, $amount: 50);
+  }
+}
+
+.btn {
+  @include marges(auto);
+  color: blue;
+  &--style {
+    @include paddes(15px);
+    @include hauteur(50px);
+    @include rayon(25px 25px);
+    @include fontsecondaire;
+    color: white;
+    background: linear-gradient(
+      to bottom right,
+      $secondaire,
+      60%,
+      lighten($primaire, 1)
+    );
+    border: none;
+    @include marges;
+    margin-bottom: 50px;
+  }
+}
+.list {
+  @include disposition(flex, row, center, center);
+  @include marges(10px);
+  @include paddes(10px);
+  &__line {
+    margin-right: 30px;
+    &--space {
+      @include disposition(flex, row, space-between, flex-start);
+      @include largeur(250px);
+    }
+  }
+}
+
+.restaurants {
+  background-color: lighten(darkgrey, 29);
+  @include disposition(flex, column, space-between, flex-start);
+  .carte {
+    @include disposition;
+    @include largeur(90%);
+    @include hauteur(16%);
+    @include marges(10px auto);
+    @include rayon(25px 25px);
+    > a {
+      @include hauteur(175px);
+    }
+    &__caption {
+      @include disposition(flex, row, space-between, flex-start);
+      @include paddes;
+      background-color: white;
+      @include rayon(0 0 25px 25px);
+      > * {
+        @include marges;
+        @include fontsecondaire;
+        color: black;
+      }
+    }
+  }
+  .picto {
+    position: relative;
+    :last-child {
+      position: absolute;
+      top: 10px;
+      right: 40px;
+      background: aquamarine;
+    }
+  }
+  img {
+    @include largeur;
+    height: 175px;
+    object-fit: cover;
+    @include rayon(25px 25px 0 0);
+  }
+}
+
+.foot {
+  @include disposition;
+  background-color: darken(darkgrey, 50);
+  color: white;
+  @include paddes(15px);
+  h2 {
+    @include fontprimaire;
+    font-style: italic;
+    @include marges;
+  }
+
+  &__puce {
+    a {
+      color: white;
+      @include fontsecondaire;
+      @include disposition(flex, row, flex-start, flex-start);
+      @include marges;
+    }
+    a {
+      > :first-child {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@import "reset.scss";

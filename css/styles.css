@@ -1,25 +1,273 @@
+@import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 body {
   margin: 0;
+  padding: 0;
 }
 
 * {
   box-sizing: border-box;
 }
 
-h1,
-h2,
-h3 {
+a {
+  text-decoration: none;
+}
+
+h1 {
   font-family: "Shrikhand", sans-serif;
 }
 
-p {
+p,
+h2,
+h3 {
   font-family: "Roboto", sans-serif;
 }
 
+/*@mixin sens($sens) {
+  @if ($sens==top) {
+    $sens: "margin-top";
+  }
+  else {
+    @if ($sens==right) {
+      $sens: "margin-right";
+    }
+  }
+  @else {
+    @if ($sens==bottom) {
+      $sens: "margin-bottom";
+    }
+  }
+  @else {
+    @if ($sens==left) {
+      $sens: "margin-left";
+    }
+  }
+  @else {
+    $sens: "margin";
+  }
+}*/
+/* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
+#logo {
+  display: flex;
+  width: 200px;
+  height: auto;
+  padding: 20px;
+  margin: auto;
+}
+
+.accroche {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #f3f3f3;
+}
+.accroche__localisation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+.accroche__localisation > i {
+  margin-right: 15px;
+}
+
+.pitch__textes {
+  text-align: center;
+  margin: 20px;
+}
+.pitch > :first-child {
+  font-weight: 600;
+  font-size: 26px;
+}
+.pitch :last-child {
+  font-size: small;
+  font-weight: lighter;
+  color: gray;
+}
+
+.btn {
+  margin: auto;
+  color: blue;
+}
+.btn--style {
+  padding: 15px;
+  height: 50px;
+  border-radius: 25px 25px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  background: linear-gradient(to bottom right, #ff79da, 60%, #965add);
+  border: none;
+  margin: 10px;
+  margin-bottom: 50px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
+  padding: 10px;
+}
+.list__line {
+  margin-right: 30px;
+}
+.list__line--space {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  width: 250px;
+}
+
+.restaurants {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: flex-start;
+}
+.restaurants .carte {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  width: 90%;
+  height: 16%;
+  margin: 10px auto;
+  border-radius: 25px 25px;
+}
+.restaurants .carte > a {
+  height: 175px;
+}
+.restaurants .carte__caption {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  padding: 10px;
+  background-color: white;
+  border-radius: 0 0 25px 25px;
+}
+.restaurants .carte__caption > * {
+  margin: 10px;
+  font-family: "Roboto", sans-serif;
+  color: black;
+}
+.restaurants .picto {
+  position: relative;
+}
+.restaurants .picto :last-child {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background: aquamarine;
+}
 .restaurants img {
   width: 100%;
-  height: 150px;
+  height: 175px;
   object-fit: cover;
+  border-radius: 25px 25px 0 0;
+}
+
+.foot {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background-color: #2a2a2a;
+  color: white;
+  padding: 15px;
+}
+.foot h2 {
+  font-family: "Shrikhand", sans-serif;
+  font-style: italic;
+  margin: 10px;
+}
+.foot__puce a {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin: 10px;
+}
+.foot__puce a > :first-child {
+  margin-right: 15px;
+}
+
+/* Reset CSS*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+p,
+figure,
+figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+body,
+html,
+aside,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
