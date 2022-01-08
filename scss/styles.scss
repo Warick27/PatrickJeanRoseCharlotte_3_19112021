@@ -82,8 +82,11 @@ h3 {
 }
 @mixin localisation($local: absolute, $abscisse: 0, $ordonne: 0) {
   position: $local;
-  x: $abscisse;
-  y: $ordonne;
+  top: $abscisse;
+  left: $ordonne;
+}
+@mixin bordure($bdwidth: 1px, $bdstyle: solid, $bdcolor: #eaeaea) {
+  border: $bdwidth $bdstyle $bdcolor;
 }
 /* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
 @mixin rayon($bord) {
@@ -102,6 +105,7 @@ header {
   @include disposition(flex, column, center, center);
   background-color: #f6f6f6;
   padding-bottom: 30px;
+
   &__localisation {
     @include disposition(flex, row, center, center);
     align-items: center;
@@ -112,6 +116,7 @@ header {
     font-weight: 500;
     background-color: #eaeaea;
     margin-bottom: 10px;
+
     > i {
       margin-right: 15px;
     }
@@ -123,10 +128,12 @@ header {
     text-align: center;
     @include marges(20px 40px);
   }
+
   :first-child {
     font-weight: 600;
     font-size: 26px;
   }
+
   :last-child {
     font-weight: lighter;
     color: lighten($color: #000000, $amount: 50);
@@ -136,6 +143,7 @@ header {
 .btn {
   @include marges(auto);
   color: blue;
+
   &--style {
     @include paddes(15px);
     @include hauteur(50px);
@@ -152,15 +160,53 @@ header {
     @include marges;
   }
 }
+/* ---- Fonctionnement ---- */
+.indication {
+  @include marges(50px 0);
+
+  h2 {
+    @include marges(20px);
+  }
+}
 .list {
   @include disposition(flex, row, center, center);
+  align-items: center;
   @include marges(10px);
   @include paddes(10px);
+
+  :hover {
+    background-color: lighten($primaire, 34);
+    .fas {
+      color: $primaire;
+    }
+  }
+
   &__line {
-    margin-right: 30px;
+    margin-right: -15px;
+    color: white;
+    background-color: $primaire;
+    @include bordure(2px, solid, $primaire);
+    @include rayon(25px);
+    @include paddes(5px 9px);
+    z-index: 1;
+
     &--space {
-      @include disposition(flex, row, space-between, flex-start);
-      @include largeur(250px);
+      @include disposition(flex, row, flex-start, flex-start);
+      align-items: center;
+      @include largeur(100%);
+      @include rayon(25px 25px);
+      @include paddes(25px 40px);
+      background-color: #f6f6f6;
+
+      .fas {
+        font-size: 20px;
+        color: darken(#eaeaea, 40);
+      }
+
+      p {
+        margin-left: 25px;
+        font-weight: 600;
+      }
     }
   }
 }

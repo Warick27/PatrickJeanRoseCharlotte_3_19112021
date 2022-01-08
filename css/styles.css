@@ -107,23 +107,56 @@ header h1 {
   margin: 10px;
 }
 
+/* ---- Fonctionnement ---- */
+.indication {
+  margin: 50px 0;
+}
+.indication h2 {
+  margin: 20px;
+}
+
 .list {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  align-items: center;
   margin: 10px;
   padding: 10px;
 }
+.list :hover {
+  background-color: #efe6fa;
+}
+.list :hover .fas {
+  color: #9356dc;
+}
 .list__line {
-  margin-right: 30px;
+  margin-right: -15px;
+  color: white;
+  background-color: #9356dc;
+  border: 2px solid #9356dc;
+  border-radius: 25px;
+  padding: 5px 9px;
+  z-index: 1;
 }
 .list__line--space {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-content: flex-start;
-  width: 250px;
+  align-items: center;
+  width: 100%;
+  border-radius: 25px 25px;
+  padding: 25px 40px;
+  background-color: #f6f6f6;
+}
+.list__line--space .fas {
+  font-size: 20px;
+  color: #848484;
+}
+.list__line--space p {
+  margin-left: 25px;
+  font-weight: 600;
 }
 
 .restaurants {
