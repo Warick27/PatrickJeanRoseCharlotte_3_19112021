@@ -8,7 +8,7 @@
         <title>Oh my food !</title>
     </head>
     <body>
-        <header>
+        <header id="top">
                 <nav>
                     <h1>Ohmyfood</h1>
                 </nav>
@@ -24,7 +24,7 @@
                     <p class="pitch__textes">Découvrez des restaurants d'exeption, sélectionnés par nos soins.</p>
                 </div>
                 <div class="btn">
-                    <button class="btn--style"type="button">Explorer nos restaurants</button>
+                    <a href="#shop"><button class="btn--style" type="button" >Explorez nos restaurants</button></a>
                 </div>
             </section>
             <section class="indication">
@@ -44,7 +44,7 @@
                     </li>
                 </ul>
             </section>
-            <section class="restaurants">
+            <section class="restaurants" id="shop">
                 <h2>Restaurants</h2>
                 <article>
                         <figure class="carte">
@@ -56,12 +56,12 @@
                             </a>
                             <figcaption class="carte__caption">
                                 <a href="restaurants/La palette du goût.html">
-                                    <div>
-                                        <p>La palette du goût</p>
-                                        <p>Ménimontant</p>
+                                    <div class="carte__caption__info">
+                                        <p class="carte__caption__info--name">La palette du goût</p>
+                                        <p class="carte__caption__info--lieu">Ménimontant</p>
                                     </div>
                                 </a>
-                                <div><i class="far fa-heart"></i></div>
+                                <div><i class="far fa-heart "></i></div>
                             </figcaption>
                         </figure>
                     </a>
@@ -76,9 +76,9 @@
                             </a>
                             <figcaption class="carte__caption">
                                 <a href="restaurants/La note enchantée.html">
-                                    <div>
-                                        <p>La note enchantée</p>
-                                        <p>Charonne</p>
+                                    <div class="carte__caption__info">
+                                        <p class="carte__caption__info--name">La note enchantée</p>
+                                        <p class="carte__caption__info--lieu">Charonne</p>
                                     </div>
                                 </a>
                                 <div><i class="far fa-heart"></i></div>
@@ -92,9 +92,9 @@
                                 </a>
                             <figcaption class="carte__caption">
                                 <a href="restaurants/À la française.html">
-                                    <div>
-                                        <p>A la française</p>
-                                        <p>Cité Rouge</p>
+                                    <div class="carte__caption__info">
+                                        <p class="carte__caption__info--name">A la française</p>
+                                        <p class="carte__caption__info--lieu">Cité Rouge</p>
                                     </div>
                                 </a>
                                 <div><i class="far fa-heart"></i></div>
@@ -106,12 +106,11 @@
                                 <a href="restaurants/Le délice des sens.html">
                                     <img src="images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg" alt="Restaurant Le délice des sens" title="Le délice des sens">
                                 </a>
-<!-- utilité ou pas de garder cette div ?? -->
                             <figcaption class="carte__caption">
                                 <a href="restaurants/Le délice des sens.html">
-                                    <div>
-                                        <p>Le délice des sens</p>
-                                        <p>Folie-Méricourt</p>
+                                    <div class="carte__caption__info">
+                                        <p class="carte__caption__info--name">Le délice des sens</p>
+                                        <p class="carte__caption__info--lieu">Folie-Méricourt</p>
                                     </div>    
                                 </a>
                                 <div><i class="far fa-heart"></i></div>
@@ -122,7 +121,7 @@
         </main>
         <footer>
             <nav class="foot">
-                <h2>ohmyfood</h2>
+                <a href="#top"><h2>ohmyfood</h2></a>
                 <ul>
                     <li class="foot__puce"><a href="#"><i class="fas fa-utensils"></i><p>Proposer un restaurant</p></a></li>
                     <li class="foot__puce"><a href="#"><i class="fas fa-handshake"></i><p>Devenir partenaire</p></a></li>
