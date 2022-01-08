@@ -90,24 +90,28 @@ h3 {
   border-radius: $bord;
 }
 
-#logo {
-  display: flex;
-  width: 200px;
-  height: auto;
-  @include paddes(20px);
-  @include marges(auto);
+header {
+  h1 {
+    text-align: center;
+    @include marges(15px);
+    font-size: 28px;
+  }
 }
+
 .accroche {
   @include disposition(flex, column, center, center);
-  background-color: lighten(darkgrey, 29);
+  background-color: #f6f6f6;
+  padding-bottom: 30px;
   &__localisation {
     @include disposition(flex, row, center, center);
+    align-items: center;
     @include largeur;
     @include hauteur(50px);
-    margin: 10px 0;
     text-align: center;
     @include fontsecondaire;
     font-weight: 500;
+    background-color: #eaeaea;
+    margin-bottom: 10px;
     > i {
       margin-right: 15px;
     }
@@ -117,14 +121,13 @@ h3 {
 .pitch {
   &__textes {
     text-align: center;
-    @include marges(20px);
+    @include marges(20px 40px);
   }
-  > :first-child {
+  :first-child {
     font-weight: 600;
     font-size: 26px;
   }
   :last-child {
-    font-size: small;
     font-weight: lighter;
     color: lighten($color: #000000, $amount: 50);
   }
@@ -147,7 +150,6 @@ h3 {
     );
     border: none;
     @include marges;
-    margin-bottom: 50px;
   }
 }
 .list {
@@ -211,7 +213,8 @@ h3 {
   @include paddes(15px);
   h2 {
     @include fontprimaire;
-    font-style: italic;
+    font-size: 130%;
+    font-weight: 400;
     @include marges;
   }
 
@@ -223,9 +226,12 @@ h3 {
       @include marges;
     }
     a {
-      > :first-child {
+      :first-child {
         margin-right: 15px;
       }
+    }
+    .fa-handshake {
+      transform: rotate(145deg);
     }
   }
 }

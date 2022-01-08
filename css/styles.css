@@ -47,12 +47,10 @@ h3 {
   }
 }*/
 /* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
-#logo {
-  display: flex;
-  width: 200px;
-  height: auto;
-  padding: 20px;
-  margin: auto;
+header h1 {
+  text-align: center;
+  margin: 15px;
+  font-size: 28px;
 }
 
 .accroche {
@@ -60,19 +58,22 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  background-color: #f3f3f3;
+  background-color: #f6f6f6;
+  padding-bottom: 30px;
 }
 .accroche__localisation {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  align-items: center;
   width: 100%;
   height: 50px;
-  margin: 10px 0;
   text-align: center;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  background-color: #eaeaea;
+  margin-bottom: 10px;
 }
 .accroche__localisation > i {
   margin-right: 15px;
@@ -80,14 +81,13 @@ h3 {
 
 .pitch__textes {
   text-align: center;
-  margin: 20px;
+  margin: 20px 40px;
 }
-.pitch > :first-child {
+.pitch :first-child {
   font-weight: 600;
   font-size: 26px;
 }
 .pitch :last-child {
-  font-size: small;
   font-weight: lighter;
   color: gray;
 }
@@ -105,7 +105,6 @@ h3 {
   background: linear-gradient(to bottom right, #ff79da, 60%, #965add);
   border: none;
   margin: 10px;
-  margin-bottom: 50px;
 }
 
 .list {
@@ -188,7 +187,8 @@ h3 {
 }
 .foot h2 {
   font-family: "Shrikhand", sans-serif;
-  font-style: italic;
+  font-size: 130%;
+  font-weight: 400;
   margin: 10px;
 }
 .foot__puce a {
@@ -200,8 +200,11 @@ h3 {
   align-content: flex-start;
   margin: 10px;
 }
-.foot__puce a > :first-child {
+.foot__puce a :first-child {
   margin-right: 15px;
+}
+.foot__puce .fa-handshake {
+  transform: rotate(145deg);
 }
 
 /* Reset CSS*/
@@ -250,6 +253,7 @@ ol,
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 blockquote,
