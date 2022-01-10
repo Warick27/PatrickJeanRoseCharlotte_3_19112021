@@ -93,11 +93,18 @@ h3 {
   border-radius: $bord;
 }
 
-header {
+.top {
+  @include marges(15px);
+  text-align: center;
+  @include marges(auto);
+}
+.top_bis {
+  @include disposition(flex, row, flex-start, flex-start);
+  align-items: center;
+  @include marges(15px);
   h1 {
     text-align: center;
-    @include marges(15px);
-    font-size: 28px;
+    @include marges(auto);
   }
 }
 
@@ -148,6 +155,8 @@ header {
     @include paddes(15px);
     @include hauteur(50px);
     @include rayon(25px 25px);
+    @include fontsecondaire;
+    color: white;
     background: linear-gradient(
       to bottom right,
       $secondaire,
@@ -157,11 +166,6 @@ header {
     border: none;
     @include marges;
     cursor: pointer;
-
-    a {
-      @include fontsecondaire;
-      color: white;
-    }
   }
 }
 /* ---- Fonctionnement ---- */
@@ -294,7 +298,8 @@ header {
       font-size: 14px;
     }
   }
-  img {
+  img,
+  .bannière {
     @include largeur;
     height: 175px;
     object-fit: cover;
@@ -330,6 +335,96 @@ header {
       transform: rotate(145deg);
     }
   }
+}
+
+/* ---- CSS pour les pages des restaurants ---- */
+
+.contenu {
+  position: relative;
+  background-color: #f6f6f6;
+  padding-bottom: 30px;
+
+  &__bannière {
+    img {
+      @include largeur;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  &__titre {
+    position: absolute;
+    top: 240px;
+    @include largeur;
+    @include rayon(15px 15px 0 0);
+    @include paddes(0 20px);
+    @include disposition(flex, row, space-between, center);
+    align-items: center;
+    background-color: #f6f6f6;
+    .far {
+      font-size: 24px;
+      margin-right: 10px;
+      &:hover {
+        background: -webkit-linear-gradient($primaire, $secondaire);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
+      &:active {
+        background: -webkit-linear-gradient($primaire, $secondaire);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__menu {
+    background-color: #f6f6f6;
+    margin-top: 30px;
+    @include disposition;
+
+    h2 {
+      font-weight: 400;
+      font-size: 16px;
+      border-bottom: 3px solid $tertiaire;
+      @include largeur(fit-content);
+      @include marges(0 15px 10px);
+      padding-bottom: 10px;
+    }
+  }
+
+  &__composition {
+    &__textes {
+      @include disposition(flex, row, space-between, flex-start);
+      background-color: white;
+      @include marges;
+      @include rayon(15px);
+      @include paddes(5px);
+
+      p {
+        @include marges;
+      }
+      &--style {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      &--plus {
+        font-weight: 300;
+      }
+      &--prix {
+        height: fit-content;
+        display: flex;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
 }
 
 @import "reset.scss";

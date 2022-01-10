@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
 body {
@@ -47,10 +48,23 @@ h3 {
   }
 }*/
 /* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
-header h1 {
-  text-align: center;
+.top {
   margin: 15px;
-  font-size: 28px;
+  text-align: center;
+  margin: auto;
+}
+
+.top_bis {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  align-items: center;
+  margin: 15px;
+}
+.top_bis h1 {
+  text-align: center;
+  margin: auto;
 }
 
 .accroche {
@@ -100,14 +114,12 @@ header h1 {
   padding: 15px;
   height: 50px;
   border-radius: 25px 25px;
+  font-family: "Roboto", sans-serif;
+  color: white;
   background: linear-gradient(to bottom right, #ff79da, 60%, #965add);
   border: none;
   margin: 10px;
   cursor: pointer;
-}
-.btn--style a {
-  font-family: "Roboto", sans-serif;
-  color: white;
 }
 
 /* ---- Fonctionnement ---- */
@@ -240,7 +252,8 @@ header h1 {
   padding: 5px 7px;
   font-size: 14px;
 }
-.restaurants img {
+.restaurants img,
+.restaurants .bannière {
   width: 100%;
   height: 175px;
   object-fit: cover;
@@ -276,6 +289,94 @@ header h1 {
 }
 .foot__puce .fa-handshake {
   transform: rotate(145deg);
+}
+
+/* ---- CSS pour les pages des restaurants ---- */
+.contenu {
+  position: relative;
+  background-color: #f6f6f6;
+  padding-bottom: 30px;
+}
+.contenu__bannière img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+.contenu__titre {
+  position: absolute;
+  top: 240px;
+  width: 100%;
+  border-radius: 15px 15px 0 0;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  background-color: #f6f6f6;
+}
+.contenu__titre .far {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.contenu__titre .far:hover {
+  background: -webkit-linear-gradient(#9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+.contenu__titre .far:active {
+  background: -webkit-linear-gradient(#9356dc, #ff79da);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+.contenu__menu {
+  background-color: #f6f6f6;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+.contenu__menu h2 {
+  font-weight: 400;
+  font-size: 16px;
+  border-bottom: 3px solid #99e2d0;
+  width: fit-content;
+  margin: 0 15px 10px;
+  padding-bottom: 10px;
+}
+.contenu__composition__textes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: flex-start;
+  background-color: white;
+  margin: 10px;
+  border-radius: 15px;
+  padding: 5px;
+}
+.contenu__composition__textes p {
+  margin: 10px;
+}
+.contenu__composition__textes--style {
+  font-weight: 600;
+  font-size: 18px;
+}
+.contenu__composition__textes--plus {
+  font-weight: 300;
+}
+.contenu__composition__textes--prix {
+  height: fit-content;
+  display: flex;
+  align-self: flex-end;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Reset CSS*/
