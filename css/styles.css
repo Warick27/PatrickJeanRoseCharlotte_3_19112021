@@ -100,12 +100,14 @@ header h1 {
   padding: 15px;
   height: 50px;
   border-radius: 25px 25px;
-  font-family: "Roboto", sans-serif;
-  color: white;
   background: linear-gradient(to bottom right, #ff79da, 60%, #965add);
   border: none;
   margin: 10px;
   cursor: pointer;
+}
+.btn--style a {
+  font-family: "Roboto", sans-serif;
+  color: white;
 }
 
 /* ---- Fonctionnement ---- */

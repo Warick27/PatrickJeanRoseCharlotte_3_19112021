@@ -148,8 +148,6 @@ header {
     @include paddes(15px);
     @include hauteur(50px);
     @include rayon(25px 25px);
-    @include fontsecondaire;
-    color: white;
     background: linear-gradient(
       to bottom right,
       $secondaire,
@@ -159,6 +157,11 @@ header {
     border: none;
     @include marges;
     cursor: pointer;
+
+    a {
+      @include fontsecondaire;
+      color: white;
+    }
   }
 }
 /* ---- Fonctionnement ---- */
