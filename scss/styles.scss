@@ -25,6 +25,7 @@ $tertiaire: #99e2d0;
 
 h1 {
   @include fontprimaire;
+  /* à ajouter à reste.scss margin: 0;*/
 }
 p,
 h2,
@@ -106,7 +107,6 @@ h3 {
 .top {
   @include marges(15px);
   text-align: center;
-  @include marges(auto);
 }
 .top_bis {
   @include disposition(flex, row, flex-start, flex-start);
@@ -427,24 +427,26 @@ h3 {
       @include rayon(15px);
       /*@include paddes(5px);*/
       @include ombre;
+      &--taille {
+        min-width: 210px;
+      }
 
       p {
         @include marges(12px);
       }
       &--style {
         font-weight: 600;
-        font-size: 18px;
+        font-size: 16px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        max-width: 210px;
       }
       &--plus {
         font-weight: 300;
+        font-size: 14.5px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        max-width: 210px;
       }
       &--prix {
         height: fit-content;

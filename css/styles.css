@@ -16,6 +16,7 @@ a {
 
 h1 {
   font-family: "Shrikhand", sans-serif;
+  /* à ajouter à reste.scss margin: 0;*/
 }
 
 p,
@@ -51,7 +52,6 @@ h3 {
 .top {
   margin: 15px;
   text-align: center;
-  margin: auto;
 }
 
 .top_bis {
@@ -372,23 +372,25 @@ h3 {
   /*@include paddes(5px);*/
   box-shadow: 0px 4px 10px 1px #d4d4d4;
 }
+.contenu__composition__textes--taille {
+  min-width: 210px;
+}
 .contenu__composition__textes p {
   margin: 12px;
 }
 .contenu__composition__textes--style {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 210px;
 }
 .contenu__composition__textes--plus {
   font-weight: 300;
+  font-size: 14.5px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 210px;
 }
 .contenu__composition__textes--prix {
   height: fit-content;
