@@ -93,6 +93,16 @@ h3 {
   border-radius: $bord;
 }
 
+@mixin ombre(
+  $horizon: 0px,
+  $vertical: 4px,
+  $diffus: 10px,
+  $longueur: 1px,
+  $couleur: lighten(grey, 33)
+) {
+  box-shadow: $horizon $vertical $diffus $longueur $couleur;
+}
+
 .top {
   @include marges(15px);
   text-align: center;
@@ -166,6 +176,17 @@ h3 {
     border: none;
     @include marges;
     cursor: pointer;
+    @include ombre;
+  }
+
+  &__commande {
+    @include marges(30px);
+    display: flex;
+    justify-content: center;
+    width: auto;
+    &--look {
+      width: 175px;
+    }
   }
 }
 /* ---- Fonctionnement ---- */
@@ -205,6 +226,7 @@ h3 {
       @include rayon(25px 25px);
       @include paddes(25px 40px);
       background-color: #f6f6f6;
+      @include ombre;
 
       .fas {
         font-size: 20px;
@@ -234,6 +256,7 @@ h3 {
     @include hauteur(16%);
     @include marges(10px auto);
     @include rayon(25px 25px);
+    @include ombre;
 
     &__caption {
       @include disposition(flex, row, space-between, flex-start);
@@ -383,7 +406,7 @@ h3 {
 
   &__menu {
     background-color: #f6f6f6;
-    margin-top: 30px;
+    margin-top: 20px;
     @include disposition;
 
     h2 {
@@ -400,31 +423,50 @@ h3 {
     &__textes {
       @include disposition(flex, row, space-between, flex-start);
       background-color: white;
-      @include marges;
+      @include marges(12px);
       @include rayon(15px);
-      @include paddes(5px);
+      /*@include paddes(5px);*/
+      @include ombre;
 
       p {
-        @include marges;
+        @include marges(12px);
       }
       &--style {
         font-weight: 600;
         font-size: 18px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 210px;
       }
       &--plus {
         font-weight: 300;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 210px;
       }
       &--prix {
         height: fit-content;
         display: flex;
         align-self: flex-end;
+        font-weight: 600;
       }
     }
   }
 }
 
 .hidden {
-  display: none;
+  @include disposition(flex, row, center, center);
+  flex-shrink: 0;
+  align-items: center;
+  /*@include bordure;*/
+  color: white;
+  background-color: $tertiaire;
+
+  @include rayon(0 15px 15px 0);
+  width: 60px;
+  display: hidden;
 }
 
 @import "reset.scss";

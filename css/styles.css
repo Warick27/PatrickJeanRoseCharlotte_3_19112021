@@ -120,6 +120,16 @@ h3 {
   border: none;
   margin: 10px;
   cursor: pointer;
+  box-shadow: 0px 4px 10px 1px #d4d4d4;
+}
+.btn__commande {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+.btn__commande--look {
+  width: 175px;
 }
 
 /* ---- Fonctionnement ---- */
@@ -164,6 +174,7 @@ h3 {
   border-radius: 25px 25px;
   padding: 25px 40px;
   background-color: #f6f6f6;
+  box-shadow: 0px 4px 10px 1px #d4d4d4;
 }
 .list__line--space .fas {
   font-size: 20px;
@@ -195,6 +206,7 @@ h3 {
   height: 16%;
   margin: 10px auto;
   border-radius: 25px 25px;
+  box-shadow: 0px 4px 10px 1px #d4d4d4;
 }
 .restaurants .carte__caption {
   display: flex;
@@ -335,7 +347,7 @@ h3 {
 }
 .contenu__menu {
   background-color: #f6f6f6;
-  margin-top: 30px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -355,28 +367,49 @@ h3 {
   justify-content: space-between;
   align-content: flex-start;
   background-color: white;
-  margin: 10px;
+  margin: 12px;
   border-radius: 15px;
-  padding: 5px;
+  /*@include paddes(5px);*/
+  box-shadow: 0px 4px 10px 1px #d4d4d4;
 }
 .contenu__composition__textes p {
-  margin: 10px;
+  margin: 12px;
 }
 .contenu__composition__textes--style {
   font-weight: 600;
   font-size: 18px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 210px;
 }
 .contenu__composition__textes--plus {
   font-weight: 300;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 210px;
 }
 .contenu__composition__textes--prix {
   height: fit-content;
   display: flex;
   align-self: flex-end;
+  font-weight: 600;
 }
 
 .hidden {
-  display: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-shrink: 0;
+  align-items: center;
+  /*@include bordure;*/
+  color: white;
+  background-color: #99e2d0;
+  border-radius: 0 15px 15px 0;
+  width: 60px;
+  display: hidden;
 }
 
 /* Reset CSS*/
