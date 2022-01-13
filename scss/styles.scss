@@ -133,6 +133,7 @@ h3 {
     font-weight: 500;
     background-color: #eaeaea;
     margin-bottom: 10px;
+    box-shadow: inset 0 5px 5px -5px darken(#eaeaea, 30);
 
     > i {
       margin-right: 15px;
@@ -250,6 +251,10 @@ h3 {
     @include marges(20px);
   }
 
+  .organisation {
+    @include disposition(flex, column, space-between, flex-start);
+  }
+
   .carte {
     @include disposition;
     @include largeur(90%);
@@ -327,36 +332,6 @@ h3 {
     height: 175px;
     object-fit: cover;
     @include rayon(15px 15px 0 0);
-  }
-}
-
-.foot {
-  @include disposition;
-  background-color: darken(darkgrey, 50);
-  @include paddes(15px);
-  h2 {
-    @include fontprimaire;
-    font-size: 130%;
-    font-weight: 400;
-    @include marges;
-    color: white;
-  }
-
-  &__puce {
-    a {
-      color: white;
-      @include fontsecondaire;
-      @include disposition(flex, row, flex-start, flex-start);
-      @include marges;
-    }
-    a {
-      :first-child {
-        margin-right: 15px;
-      }
-    }
-    .fa-handshake {
-      transform: rotate(145deg);
-    }
   }
 }
 
@@ -462,7 +437,6 @@ h3 {
   @include disposition(flex, row, center, center);
   flex-shrink: 0;
   align-items: center;
-  /*@include bordure;*/
   color: white;
   background-color: $tertiaire;
 
@@ -471,4 +445,214 @@ h3 {
   display: hidden;
 }
 
+/* ---- Footer ---- */
+
+.foot {
+  @include disposition;
+  background-color: darken(darkgrey, 50);
+  @include paddes(15px);
+  h2 {
+    @include fontprimaire;
+    font-size: 24px;
+    font-weight: 400;
+    @include marges;
+    color: white;
+  }
+  &__list {
+    &__puce {
+      a {
+        color: white;
+        @include fontsecondaire;
+        @include disposition(flex, row, flex-start, flex-start);
+        @include marges;
+      }
+      a {
+        :first-child {
+          margin-right: 15px;
+        }
+      }
+      .fa-handshake {
+        transform: rotate(145deg);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  /* ---- Accueil ---- */
+  .indication {
+    width: 400px;
+    @include marges(auto);
+    margin-bottom: 30px;
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  .restaurants {
+    padding-top: 10px;
+    h2 {
+      text-align: center;
+    }
+
+    .organisation {
+      flex-direction: row;
+      flex-wrap: wrap;
+      @include largeur(85%);
+      @include marges(auto);
+    }
+
+    .carte {
+      @include largeur(300px);
+      @include marges(20px auto);
+    }
+  }
+
+  .foot {
+    h2 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    &__list {
+      @include disposition(flex, row, space-evenly, flex-start);
+      flex-wrap: wrap;
+
+      &__puce {
+        @include largeur(45%);
+
+        a {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+
+  /* ---- pages Restaurants ---- */
+  .contenu {
+    &__titre {
+      justify-content: center;
+      align-content: space-between;
+      h1 {
+        margin-right: 40px;
+        font-size: 28px;
+      }
+      /*i {
+        position: absolute;
+        right: 0;
+      }*/
+    }
+    &__menu {
+      h2 {
+        align-self: center;
+      }
+    }
+    &__composition {
+      @include disposition(flex, column, center, center);
+      @include marges(auto);
+      @include largeur(90%);
+      &__textes {
+        @include largeur(100%);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  /* ---- Accueil ---- */
+  .indication {
+    h2 {
+      text-align: center;
+    }
+
+    ul {
+      @include disposition(flex, row, space-evenly, flex-start);
+      @include largeur(90%);
+      @include marges(auto);
+    }
+
+    .list {
+      @include largeur(340px);
+    }
+  }
+
+  .restaurants {
+    h2 {
+      text-align: center;
+    }
+
+    .organisation {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      @include largeur(95%);
+      @include marges(auto);
+    }
+
+    .carte {
+      @include largeur(450px);
+      @include marges(40px auto);
+    }
+  }
+
+  .foot {
+    h2 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    &__list {
+      @include marges;
+      @include disposition(flex, row, space-evenly, flex-start);
+
+      &__puce {
+        @include largeur(45%);
+
+        a {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  /* ---- pages Restaurants ---- */
+
+  .contenu {
+    &__titre {
+      justify-content: center;
+      align-content: space-between;
+      h1 {
+        margin-right: 40px;
+        font-size: 28px;
+      }
+      /*i {
+        position: absolute;
+        right: 0;
+      }*/
+    }
+
+    &__menu {
+      h2 {
+        align-self: center;
+      }
+    }
+
+    &__composition {
+      @include disposition(flex, column, flex-start, flex-start);
+
+      @include largeur(95%);
+      &__textes {
+        min-width: 350px;
+      }
+    }
+  }
+  #livret {
+    @include disposition(flex, row, space-between, flex-start);
+    margin-top: 30px;
+  }
+}
 @import "reset.scss";
