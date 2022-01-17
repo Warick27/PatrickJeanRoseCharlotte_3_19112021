@@ -25,30 +25,6 @@ h3 {
   font-family: "Roboto", sans-serif;
 }
 
-/*@mixin sens($sens) {
-  @if ($sens==top) {
-    $sens: "margin-top";
-  }
-  else {
-    @if ($sens==right) {
-      $sens: "margin-right";
-    }
-  }
-  @else {
-    @if ($sens==bottom) {
-      $sens: "margin-bottom";
-    }
-  }
-  @else {
-    @if ($sens==left) {
-      $sens: "margin-left";
-    }
-  }
-  @else {
-    $sens: "margin";
-  }
-}*/
-/* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
 .top {
   margin: 15px;
   text-align: center;
@@ -123,6 +99,10 @@ h3 {
   cursor: pointer;
   box-shadow: 0px 4px 10px 1px #d4d4d4;
 }
+.btn--style:hover {
+  background: linear-gradient(to bottom right, #ff93e1, 60%, #a16be0);
+  box-shadow: 0 4px 10px 1px #a6a6a6;
+}
 .btn__commande {
   margin: 30px;
   display: flex;
@@ -157,6 +137,7 @@ h3 {
   color: #9356dc;
 }
 .list__line {
+  font-family: "Roboto", sans-serif;
   margin-right: -15px;
   color: white;
   background-color: #9356dc;
@@ -176,6 +157,9 @@ h3 {
   padding: 25px 40px;
   background-color: #f6f6f6;
   box-shadow: 0px 4px 10px 1px #d4d4d4;
+}
+.list__line--space:hover {
+  box-shadow: 0 4px 10px 1px #a6a6a6;
 }
 .list__line--space .fas {
   font-size: 20px;
@@ -215,6 +199,9 @@ h3 {
   border-radius: 25px 25px;
   box-shadow: 0px 4px 10px 1px #d4d4d4;
 }
+.restaurants .carte:hover {
+  box-shadow: 0 4px 10px 1px #a6a6a6;
+}
 .restaurants .carte__caption {
   display: flex;
   flex-direction: row;
@@ -233,19 +220,13 @@ h3 {
   font-size: 24px;
   margin-right: 10px;
 }
-.restaurants .carte__caption :hover .far {
+.restaurants .carte__caption .far:hover {
   background: -webkit-linear-gradient(#9356dc, #ff79da);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
-}
-.restaurants .carte__caption :active {
-  background: -webkit-linear-gradient(#9356dc, #ff79da);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
+  animation: checked 350ms ease-in-out;
 }
 .restaurants .carte__caption__info :nth-child(-n+2) {
   margin: 5px;
@@ -259,6 +240,7 @@ h3 {
 }
 .restaurants .picto {
   position: relative;
+  height: 179px;
 }
 .restaurants .picto :last-child {
   position: absolute;
@@ -271,10 +253,13 @@ h3 {
   padding: 5px 7px;
   font-size: 14px;
 }
+.restaurants .photo {
+  height: 179px;
+}
 .restaurants img,
 .restaurants .bannière {
   width: 100%;
-  height: 175px;
+  height: 179px;
   object-fit: cover;
   border-radius: 15px 15px 0 0;
 }
@@ -307,14 +292,32 @@ h3 {
   font-size: 24px;
   margin-right: 10px;
 }
-.contenu__titre .far:hover {
+.contenu__titre .far:active {
   background: -webkit-linear-gradient(#9356dc, #ff79da);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: bold;
+  animation: coloration 200ms forwards;
 }
-.contenu__titre .far:active {
+@keyframes coloration {
+  0% {
+    opacity: 0;
+    font-size: 40px;
+    margin-left: -16px;
+  }
+  50% {
+    opacity: 0.5;
+    font-size: 32px;
+    margin-left: -8px;
+  }
+  100% {
+    opacity: 1;
+    font-size: 24px;
+    margin-left: 0;
+  }
+}
+.contenu__titre:checked {
   background: -webkit-linear-gradient(#9356dc, #ff79da);
   background-clip: text;
   -webkit-background-clip: text;
@@ -337,6 +340,15 @@ h3 {
   margin: 0 15px 10px;
   padding-bottom: 10px;
 }
+.contenu .entree {
+  animation: ouverture 1000ms;
+}
+.contenu .plats {
+  animation: ouverture 1500ms;
+}
+.contenu .desserts {
+  animation: ouverture 2000ms;
+}
 .contenu__composition__textes {
   display: flex;
   flex-direction: row;
@@ -345,11 +357,16 @@ h3 {
   background-color: white;
   margin: 12px;
   border-radius: 15px;
-  /*@include paddes(5px);*/
   box-shadow: 0px 4px 10px 1px #d4d4d4;
+  overflow: hidden;
+}
+.contenu__composition__textes:hover {
+  box-shadow: 0 4px 10px 1px #a6a6a6;
 }
 .contenu__composition__textes--taille {
-  min-width: 210px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .contenu__composition__textes p {
   margin: 12px;
@@ -374,7 +391,23 @@ h3 {
   align-self: flex-end;
   font-weight: 600;
 }
+.contenu__composition__textes:active .hidden {
+  transform: translate(0);
+}
+.contenu__composition__textes:active .hidden i {
+  transform: rotate(1turn);
+}
 
+@keyframes ouverture {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
 .hidden {
   display: flex;
   flex-direction: row;
@@ -384,9 +417,13 @@ h3 {
   align-items: center;
   color: white;
   background-color: #99e2d0;
+  transform: translate(60px);
+  transition: transform 350ms ease-in-out;
   border-radius: 0 15px 15px 0;
   width: 60px;
-  display: hidden;
+}
+.hidden i {
+  transition: transform 600ms ease-in-out;
 }
 
 /* ---- Footer ---- */
@@ -473,10 +510,6 @@ h3 {
   .contenu__titre {
     justify-content: center;
     align-content: space-between;
-    /*i {
-      position: absolute;
-      right: 0;
-    }*/
   }
   .contenu__titre h1 {
     margin-right: 40px;
@@ -529,6 +562,32 @@ h3 {
     margin: 40px auto;
   }
 
+  .contenu__titre .far:hover {
+    background: -webkit-linear-gradient(#9356dc, #ff79da);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: checked 500ms ease-in-out;
+  }
+  @keyframes checked {
+    0% {
+      opacity: 0;
+      font-size: 40px;
+      margin-left: -16px;
+    }
+    50% {
+      opacity: 0.5;
+      font-size: 32px;
+      margin-left: -8px;
+    }
+    100% {
+      opacity: 1;
+      font-size: 24px;
+      margin-left: 0;
+    }
+  }
+
   .foot h2 {
     text-align: center;
     font-size: 28px;
@@ -553,10 +612,6 @@ h3 {
   .contenu__titre {
     justify-content: center;
     align-content: space-between;
-    /*i {
-      position: absolute;
-      right: 0;
-    }*/
   }
   .contenu__titre h1 {
     margin-right: 40px;
@@ -570,10 +625,15 @@ h3 {
     flex-direction: column;
     justify-content: flex-start;
     align-content: flex-start;
-    width: 95%;
   }
   .contenu__composition__textes {
-    min-width: 350px;
+    width: 345px;
+  }
+  .contenu__composition__textes:hover .hidden {
+    transform: translate(0);
+  }
+  .contenu__composition__textes:hover .hidden i {
+    transform: rotate(1turn);
   }
 
   #livret {
@@ -582,6 +642,12 @@ h3 {
     justify-content: space-between;
     align-content: flex-start;
     margin-top: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  body,
+html {
+    margin: 0 200px;
   }
 }
 /* Reset CSS*/
