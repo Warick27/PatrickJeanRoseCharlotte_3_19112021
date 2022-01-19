@@ -123,7 +123,7 @@ a {
   }
 }
 /* ---- Partie du site ---- */
-/* ---- ---- */
+/* ---- Général ---- */
 h1 {
   font-family: "Shrikhand", sans-serif;
 }
@@ -134,7 +134,7 @@ h3 {
   font-family: "Roboto", sans-serif;
 }
 
-/* ---- ---- */
+/* ---- Header ---- */
 .top {
   margin: 15px;
   text-align: center;
@@ -156,6 +156,7 @@ h3 {
   color: black;
 }
 
+/* ---- Main : Partie présentation ---- */
 .accroche {
   display: flex;
   flex-direction: column;
@@ -226,7 +227,7 @@ h3 {
   width: 175px;
 }
 
-/* ---- Fonctionnement ---- */
+/* ---- Main : Fonctionnement ---- */
 .indication {
   margin: 50px 0;
 }
@@ -283,7 +284,7 @@ h3 {
   font-weight: 600;
 }
 
-/* ---- Restaurants: les cartes ---- */
+/* ---- Main : les cartes des restaurants ---- */
 .restaurants {
   background-color: #f6f6f6;
   display: flex;
@@ -379,6 +380,38 @@ h3 {
   height: 179px;
   object-fit: cover;
   border-radius: 15px 15px 0 0;
+}
+
+/* ---- Footer ---- */
+.foot {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: flex-start;
+  background-color: #2a2a2a;
+  padding: 15px;
+}
+.foot h2 {
+  font-family: "Shrikhand", sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 10px;
+  color: white;
+}
+.foot__list__puce a {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  margin: 10px;
+}
+.foot__list__puce a :first-child {
+  margin-right: 15px;
+}
+.foot__list__puce .fa-handshake {
+  transform: rotate(145deg);
 }
 
 /* ---- CSS pour les pages des restaurants ---- */
@@ -549,38 +582,7 @@ h3 {
   transform: rotate(0);
 }
 
-/* ---- Footer ---- */
-.foot {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: flex-start;
-  background-color: #2a2a2a;
-  padding: 15px;
-}
-.foot h2 {
-  font-family: "Shrikhand", sans-serif;
-  font-size: 24px;
-  font-weight: 400;
-  margin: 10px;
-  color: white;
-}
-.foot__list__puce a {
-  color: white;
-  font-family: "Roboto", sans-serif;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-content: flex-start;
-  margin: 10px;
-}
-.foot__list__puce a :first-child {
-  margin-right: 15px;
-}
-.foot__list__puce .fa-handshake {
-  transform: rotate(145deg);
-}
-
+/* ---- Media queries pour les tablettes ---- */
 @media screen and (min-width: 768px) and (max-width: 992px) {
   /* ---- Accueil ---- */
   .indication {
@@ -653,6 +655,7 @@ h3 {
     width: 100%;
   }
 }
+/* ---- Media queries pour desktop ---- */
 @media screen and (min-width: 992px) {
   /* ---- Accueil ---- */
   .indication h2 {
@@ -778,6 +781,7 @@ h3 {
     margin-top: 30px;
   }
 }
+/* ---- Media queries pour les grands écrans ---- */
 @media screen and (min-width: 1366px) {
   body {
     margin: auto;

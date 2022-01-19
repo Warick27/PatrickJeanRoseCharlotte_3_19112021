@@ -19,11 +19,9 @@ $tertiaire: #99e2d0;
 @mixin fontprimaire {
   font-family: "Shrikhand", sans-serif;
 }
-
 @mixin fontsecondaire {
   font-family: "Roboto", sans-serif;
 }
-
 @mixin disposition(
   $type: flex,
   $sens: column,
@@ -35,7 +33,6 @@ $tertiaire: #99e2d0;
   justify-content: $justif;
   align-content: $align;
 }
-
 @mixin marges($marg: 10px) {
   margin: $marg;
 }
@@ -59,7 +56,6 @@ $tertiaire: #99e2d0;
 @mixin rayon($bord) {
   border-radius: $bord;
 }
-
 @mixin ombre(
   $horizon: 0px,
   $vertical: 4px,
@@ -193,7 +189,7 @@ $tertiaire: #99e2d0;
   animation: $name $duration $method;
 }
 
-/* ---- ---- */
+/* ---- Général ---- */
 
 h1 {
   @include fontprimaire;
@@ -204,7 +200,7 @@ h3 {
   @include fontsecondaire;
 }
 
-/* ---- ---- */
+/* ---- Header ---- */
 
 .top {
   @include marges(15px);
@@ -223,6 +219,7 @@ h3 {
   }
 }
 
+/* ---- Main : Partie présentation ---- */
 .accroche {
   @include disposition(flex, column, center, center);
   background-color: #f6f6f6;
@@ -304,7 +301,7 @@ h3 {
     }
   }
 }
-/* ---- Fonctionnement ---- */
+/* ---- Main : Fonctionnement ---- */
 .indication {
   @include marges(50px 0);
 
@@ -360,7 +357,7 @@ h3 {
     }
   }
 }
-/* ---- Restaurants: les cartes ---- */
+/* ---- Main : les cartes des restaurants ---- */
 .restaurants {
   background-color: #f6f6f6;
   @include disposition(flex, column, space-between, flex-start);
@@ -451,6 +448,39 @@ h3 {
     height: 179px;
     object-fit: cover;
     @include rayon(15px 15px 0 0);
+  }
+}
+
+/* ---- Footer ---- */
+
+.foot {
+  @include disposition;
+  background-color: darken(darkgrey, 50);
+  @include paddes(15px);
+  h2 {
+    @include fontprimaire;
+    font-size: 24px;
+    font-weight: 400;
+    @include marges;
+    color: white;
+  }
+  &__list {
+    &__puce {
+      a {
+        color: white;
+        @include fontsecondaire;
+        @include disposition(flex, row, flex-start, flex-start);
+        @include marges;
+      }
+      a {
+        :first-child {
+          margin-right: 15px;
+        }
+      }
+      .fa-handshake {
+        transform: rotate(145deg);
+      }
+    }
   }
 }
 
@@ -615,38 +645,7 @@ h3 {
   }
 }
 
-/* ---- Footer ---- */
-
-.foot {
-  @include disposition;
-  background-color: darken(darkgrey, 50);
-  @include paddes(15px);
-  h2 {
-    @include fontprimaire;
-    font-size: 24px;
-    font-weight: 400;
-    @include marges;
-    color: white;
-  }
-  &__list {
-    &__puce {
-      a {
-        color: white;
-        @include fontsecondaire;
-        @include disposition(flex, row, flex-start, flex-start);
-        @include marges;
-      }
-      a {
-        :first-child {
-          margin-right: 15px;
-        }
-      }
-      .fa-handshake {
-        transform: rotate(145deg);
-      }
-    }
-  }
-}
+/* ---- Media queries pour les tablettes ---- */
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
   /* ---- Accueil ---- */
@@ -726,6 +725,8 @@ h3 {
     }
   }
 }
+
+/* ---- Media queries pour desktop ---- */
 
 @media screen and (min-width: 992px) {
   /* ---- Accueil ---- */
@@ -859,6 +860,7 @@ h3 {
   }
 }
 
+/* ---- Media queries pour les grands écrans ---- */
 @media screen and (min-width: 1366px) {
   body {
     margin: auto;
