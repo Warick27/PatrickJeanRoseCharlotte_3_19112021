@@ -341,13 +341,19 @@ h3 {
   padding-bottom: 10px;
 }
 .contenu .entree {
-  animation: ouverture 1000ms;
+  animation: ouverture 1000ms 0.2s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(-30px);
 }
 .contenu .plats {
-  animation: ouverture 1500ms;
+  animation: ouverture 1000ms 0.4s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(-30px);
 }
 .contenu .desserts {
-  animation: ouverture 2000ms;
+  animation: ouverture 1000ms 0.6s ease-in-out forwards;
+  opacity: 0;
+  transform: translateY(-30px);
 }
 .contenu__composition__textes {
   display: flex;
@@ -399,10 +405,6 @@ h3 {
 }
 
 @keyframes ouverture {
-  0% {
-    opacity: 0;
-    transform: translateY(50px);
-  }
   100% {
     opacity: 1;
     transform: translateY(0px);
