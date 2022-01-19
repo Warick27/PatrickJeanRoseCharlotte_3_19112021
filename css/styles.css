@@ -25,30 +25,119 @@ h3 {
   font-family: "Roboto", sans-serif;
 }
 
-/*@mixin sens($sens) {
-  @if ($sens==top) {
-    $sens: "margin-top";
-  }
-  else {
-    @if ($sens==right) {
-      $sens: "margin-right";
-    }
-  }
-  @else {
-    @if ($sens==bottom) {
-      $sens: "margin-bottom";
-    }
-  }
-  @else {
-    @if ($sens==left) {
-      $sens: "margin-left";
-    }
-  }
-  @else {
-    $sens: "margin";
-  }
-}*/
 /* $bordhg : bord haut gauche; $bordhd : bord haut droit, $bordbd : bord bas droit, $bordbg : bord bas gauche; */
+/* ---- Loading spinner ---- */
+.loading {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: flex-end;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+
+.lettre {
+  display: flex;
+  font-size: 50px;
+  margin: 5px;
+  animation: pulse 3s 450ms forwards;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+@keyframes pulse {
+  0% {
+    background-color: #001f3f;
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  20% {
+    background-color: #9356dc;
+  }
+  40% {
+    background-color: #ff79da;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  60% {
+    background-color: #99e2d0;
+  }
+  80% {
+    background-color: grey;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    background-color: #001f3f;
+  }
+}
+@keyframes apparition {
+  100% {
+    opacity: 1;
+  }
+}
+.loader {
+  display: block;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  border: 10px solid #f6f6f6;
+  position: absolute;
+  top: 60%;
+  left: 48%;
+  opacity: 0;
+  animation: load 3s linear backwards;
+  border-radius: 50%;
+}
+
+@keyframes load {
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-top-color: #9356dc;
+    border-bottom-color: #9356dc;
+    opacity: 1;
+  }
+  25% {
+    border-top-color: #ff79da;
+    border-bottom-color: #ff79da;
+  }
+  50% {
+    transform: rotate(360deg) scale(1.15);
+    border-top-color: #9356dc;
+    border-bottom-color: #9356dc;
+  }
+  75% {
+    border-top-color: #99e2d0;
+    border-bottom-color: #99e2d0;
+    opacity: 0.5;
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+    border-top-color: #9356dc;
+    border-bottom-color: #9356dc;
+    opacity: 0;
+  }
+}
+.animated {
+  animation: postanimation 10ms 3s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes postanimation {
+  100% {
+    opacity: 1;
+  }
+}
+/* ---- Partie du site ---- */
 .top {
   margin: 15px;
   text-align: center;
