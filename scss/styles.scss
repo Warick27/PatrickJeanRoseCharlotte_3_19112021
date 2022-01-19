@@ -15,22 +15,13 @@ $primaire: #9356dc;
 $secondaire: #ff79da;
 $tertiaire: #99e2d0;
 
+/* ---- Mixins ---- */
 @mixin fontprimaire {
   font-family: "Shrikhand", sans-serif;
 }
 
 @mixin fontsecondaire {
   font-family: "Roboto", sans-serif;
-}
-
-h1 {
-  @include fontprimaire;
-  /* à ajouter à reste.scss margin: 0;*/
-}
-p,
-h2,
-h3 {
-  @include fontsecondaire;
 }
 
 @mixin disposition(
@@ -91,6 +82,19 @@ h3 {
   animation: $name $duration $method;
 }
 
+/* ---- ---- */
+
+h1 {
+  @include fontprimaire;
+}
+p,
+h2,
+h3 {
+  @include fontsecondaire;
+}
+
+/* ---- ---- */
+
 .top {
   @include marges(15px);
   text-align: center;
@@ -102,6 +106,9 @@ h3 {
   h1 {
     text-align: center;
     @include marges(auto);
+  }
+  .fas {
+    color: black;
   }
 }
 
@@ -282,9 +289,14 @@ h3 {
       .far {
         font-size: 24px;
         margin-right: 10px;
-        &:hover {
-          @include coeur;
-          @include animation(checked, 350ms, ease-in-out);
+
+        &:active {
+          animation: progression 500ms ease-in-out forwards;
+        }
+        @keyframes progression {
+          100% {
+            @include coeur;
+          }
         }
       }
 
@@ -423,8 +435,14 @@ h3 {
       @include rayon(15px);
       @include ombre;
       overflow: hidden;
-      &:hover {
+      &:active {
         @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
+        .hidden {
+          width: 60px;
+          i {
+            animation: rotation 600ms ease-in-out forwards;
+          }
+        }
       }
       &--taille {
         width: 100%;
@@ -454,15 +472,13 @@ h3 {
         align-self: flex-end;
         font-weight: 600;
       }
-      &:active {
-        .hidden {
-          transform: translate(0);
-          i {
-            transform: rotate(1turn);
-          }
-        }
-      }
     }
+  }
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(720deg);
   }
 }
 
@@ -479,13 +495,12 @@ h3 {
   align-items: center;
   color: white;
   background-color: $tertiaire;
-  transform: translate(60px);
-  transition: transform 350ms ease-in-out;
+  transition: width 500ms ease-in-out;
   @include rayon(0 15px 15px 0);
-  width: 60px;
+  width: 0;
 
   i {
-    transition: transform 600ms ease-in-out;
+    transform: rotate(0);
   }
 }
 
@@ -615,7 +630,7 @@ h3 {
     }
 
     .list {
-      @include largeur(340px);
+      @include largeur(fit-content);
     }
   }
 
@@ -635,30 +650,15 @@ h3 {
     .carte {
       @include largeur(450px);
       @include marges(40px auto);
-    }
-  }
-  .contenu {
-    &__titre {
-      .far {
-        &:hover {
-          @include coeur;
-          @include animation(checked, 500ms, ease-in-out);
-        }
-        @keyframes checked {
-          0% {
-            opacity: 0;
-            font-size: 40px;
-            margin-left: -16px;
+      &__caption {
+        .far {
+          &:hover {
+            animation: progression 250ms ease-in-out forwards;
           }
-          50% {
-            opacity: 0.5;
-            font-size: 32px;
-            margin-left: -8px;
-          }
-          100% {
-            opacity: 1;
-            font-size: 24px;
-            margin-left: 0;
+          @keyframes progression {
+            100% {
+              @include coeur;
+            }
           }
         }
       }
@@ -696,6 +696,29 @@ h3 {
         margin-right: 40px;
         font-size: 28px;
       }
+      .far {
+        &:hover {
+          @include coeur;
+          @include animation(checked, 500ms, ease-in-out);
+        }
+        @keyframes checked {
+          0% {
+            opacity: 0;
+            font-size: 40px;
+            margin-left: -16px;
+          }
+          50% {
+            opacity: 0.5;
+            font-size: 32px;
+            margin-left: -8px;
+          }
+          100% {
+            opacity: 1;
+            font-size: 24px;
+            margin-left: 0;
+          }
+        }
+      }
     }
 
     &__menu {
@@ -710,9 +733,9 @@ h3 {
         width: 345px;
         &:hover {
           .hidden {
-            transform: translate(0);
+            width: 60px;
             i {
-              transform: rotate(1turn);
+              animation: rotation 600ms ease-in-out forwards;
             }
           }
         }
@@ -725,10 +748,13 @@ h3 {
   }
 }
 
-@media screen and (min-width: 1280px) {
-  body,
+@media screen and (min-width: 1366px) {
+  body {
+    margin: auto;
+    width: 1366px;
+  }
   html {
-    @include marges(0 200px);
+    margin: 0;
   }
 }
 @import "reset.scss";

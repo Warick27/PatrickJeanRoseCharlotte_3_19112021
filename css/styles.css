@@ -14,9 +14,10 @@ a {
   text-decoration: none;
 }
 
+/* ---- Mixins ---- */
+/* ---- ---- */
 h1 {
   font-family: "Shrikhand", sans-serif;
-  /* à ajouter à reste.scss margin: 0;*/
 }
 
 p,
@@ -25,6 +26,7 @@ h3 {
   font-family: "Roboto", sans-serif;
 }
 
+/* ---- ---- */
 .top {
   margin: 15px;
   text-align: center;
@@ -41,6 +43,9 @@ h3 {
 .top_bis h1 {
   text-align: center;
   margin: auto;
+}
+.top_bis .fas {
+  color: black;
 }
 
 .accroche {
@@ -220,13 +225,17 @@ h3 {
   font-size: 24px;
   margin-right: 10px;
 }
-.restaurants .carte__caption .far:hover {
-  background: -webkit-linear-gradient(#9356dc, #ff79da);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  animation: checked 350ms ease-in-out;
+.restaurants .carte__caption .far:active {
+  animation: progression 500ms ease-in-out forwards;
+}
+@keyframes progression {
+  100% {
+    background: -webkit-linear-gradient(#9356dc, #ff79da);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+  }
 }
 .restaurants .carte__caption__info :nth-child(-n+2) {
   margin: 5px;
@@ -366,8 +375,14 @@ h3 {
   box-shadow: 0px 4px 10px 1px #d4d4d4;
   overflow: hidden;
 }
-.contenu__composition__textes:hover {
+.contenu__composition__textes:active {
   box-shadow: 0 4px 10px 1px #a6a6a6;
+}
+.contenu__composition__textes:active .hidden {
+  width: 60px;
+}
+.contenu__composition__textes:active .hidden i {
+  animation: rotation 600ms ease-in-out forwards;
 }
 .contenu__composition__textes--taille {
   width: 100%;
@@ -397,13 +412,12 @@ h3 {
   align-self: flex-end;
   font-weight: 600;
 }
-.contenu__composition__textes:active .hidden {
-  transform: translate(0);
-}
-.contenu__composition__textes:active .hidden i {
-  transform: rotate(1turn);
-}
 
+@keyframes rotation {
+  100% {
+    transform: rotate(720deg);
+  }
+}
 @keyframes ouverture {
   100% {
     opacity: 1;
@@ -419,13 +433,12 @@ h3 {
   align-items: center;
   color: white;
   background-color: #99e2d0;
-  transform: translate(60px);
-  transition: transform 350ms ease-in-out;
+  transition: width 500ms ease-in-out;
   border-radius: 0 15px 15px 0;
-  width: 60px;
+  width: 0;
 }
 .hidden i {
-  transition: transform 600ms ease-in-out;
+  transform: rotate(0);
 }
 
 /* ---- Footer ---- */
@@ -546,7 +559,7 @@ h3 {
     margin: auto;
   }
   .indication .list {
-    width: 340px;
+    width: fit-content;
   }
 
   .restaurants h2 {
@@ -563,30 +576,16 @@ h3 {
     width: 450px;
     margin: 40px auto;
   }
-
-  .contenu__titre .far:hover {
-    background: -webkit-linear-gradient(#9356dc, #ff79da);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    animation: checked 500ms ease-in-out;
+  .restaurants .carte__caption .far:hover {
+    animation: progression 250ms ease-in-out forwards;
   }
-  @keyframes checked {
-    0% {
-      opacity: 0;
-      font-size: 40px;
-      margin-left: -16px;
-    }
-    50% {
-      opacity: 0.5;
-      font-size: 32px;
-      margin-left: -8px;
-    }
+  @keyframes progression {
     100% {
-      opacity: 1;
-      font-size: 24px;
-      margin-left: 0;
+      background: -webkit-linear-gradient(#9356dc, #ff79da);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
     }
   }
 
@@ -619,6 +618,31 @@ h3 {
     margin-right: 40px;
     font-size: 28px;
   }
+  .contenu__titre .far:hover {
+    background: -webkit-linear-gradient(#9356dc, #ff79da);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: checked 500ms ease-in-out;
+  }
+  @keyframes checked {
+    0% {
+      opacity: 0;
+      font-size: 40px;
+      margin-left: -16px;
+    }
+    50% {
+      opacity: 0.5;
+      font-size: 32px;
+      margin-left: -8px;
+    }
+    100% {
+      opacity: 1;
+      font-size: 24px;
+      margin-left: 0;
+    }
+  }
   .contenu__menu h2 {
     align-self: center;
   }
@@ -632,10 +656,10 @@ h3 {
     width: 345px;
   }
   .contenu__composition__textes:hover .hidden {
-    transform: translate(0);
+    width: 60px;
   }
   .contenu__composition__textes:hover .hidden i {
-    transform: rotate(1turn);
+    animation: rotation 600ms ease-in-out forwards;
   }
 
   #livret {
@@ -646,10 +670,14 @@ h3 {
     margin-top: 30px;
   }
 }
-@media screen and (min-width: 1280px) {
-  body,
-html {
-    margin: 0 200px;
+@media screen and (min-width: 1366px) {
+  body {
+    margin: auto;
+    width: 1366px;
+  }
+
+  html {
+    margin: 0;
   }
 }
 /* Reset CSS*/
