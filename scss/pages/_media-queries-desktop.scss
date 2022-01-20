@@ -1,130 +1,148 @@
-.indication {
-  h2 {
-    text-align: center;
+@media screen and (min-width: 992px) {
+  .indication {
+    h2 {
+      text-align: center;
+    }
+
+    ul {
+      @include disposition(flex, row, space-evenly, flex-start);
+      @include largeur(90%);
+      @include marges(auto);
+    }
+
+    .list {
+      @include largeur(fit-content);
+    }
   }
 
-  ul {
-    @include disposition(flex, row, space-evenly, flex-start);
-    @include largeur(90%);
-    @include marges(auto);
-  }
+  .restaurants {
+    h2 {
+      text-align: center;
+    }
 
-  .list {
-    @include largeur(fit-content);
-  }
-}
+    .organisation {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      @include largeur(95%);
+      @include marges(auto);
+    }
 
-.restaurants {
-  h2 {
-    text-align: center;
+    .carte {
+      @include largeur(450px);
+      @include marges(40px auto);
+      &__caption {
+        .far {
+          &:hover {
+            animation: progression 250ms ease-in-out forwards;
+          }
+          @keyframes progression {
+            100% {
+              @include coeur;
+            }
+          }
+        }
+      }
+    }
   }
-
-  .organisation {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    @include largeur(95%);
-    @include marges(auto);
-  }
-
-  .carte {
-    @include largeur(450px);
-    @include marges(40px auto);
-    &__caption {
+  .contenu {
+    &__titre {
+      justify-content: center;
+      align-content: space-between;
+      h1 {
+        margin-right: 40px;
+        font-size: 28px;
+      }
       .far {
         &:hover {
-          animation: progression 250ms ease-in-out forwards;
+          @include coeur;
+          @include animation(checked, 500ms, ease-in-out);
         }
-        @keyframes progression {
+        @keyframes checked {
+          0% {
+            opacity: 0;
+            font-size: 40px;
+            margin-left: -16px;
+          }
+          50% {
+            opacity: 0.5;
+            font-size: 32px;
+            margin-left: -8px;
+          }
           100% {
-            @include coeur;
+            opacity: 1;
+            font-size: 24px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+
+    &__menu {
+      h2 {
+        align-self: center;
+      }
+    }
+
+    &__composition {
+      @include disposition(flex, column, flex-start, flex-start);
+      &__textes {
+        width: 345px;
+        &:hover {
+          .hidden {
+            width: 60px;
+            i {
+              animation: rotation 600ms ease-in-out forwards;
+            }
           }
         }
       }
     }
   }
-}
-.contenu {
-  &__titre {
-    justify-content: center;
-    align-content: space-between;
-    h1 {
-      margin-right: 40px;
+  #livret {
+    @include disposition(flex, row, space-around, flex-start);
+    margin-top: 30px;
+  }
+
+  .foot {
+    h2 {
+      text-align: center;
       font-size: 28px;
     }
-    .far {
-      &:hover {
-        @include coeur;
-        @include animation(checked, 500ms, ease-in-out);
-      }
-      @keyframes checked {
-        0% {
-          opacity: 0;
-          font-size: 40px;
-          margin-left: -16px;
-        }
-        50% {
-          opacity: 0.5;
-          font-size: 32px;
-          margin-left: -8px;
-        }
-        100% {
-          opacity: 1;
-          font-size: 24px;
-          margin-left: 0;
+
+    &__list {
+      @include marges;
+      @include disposition(flex, row, space-evenly, flex-start);
+
+      &__puce {
+        @include largeur(45%);
+
+        a {
+          text-align: center;
+          display: flex;
+          justify-content: center;
         }
       }
     }
   }
 
-  &__menu {
-    h2 {
-      align-self: center;
-    }
-  }
-
-  &__composition {
-    @include disposition(flex, column, flex-start, flex-start);
-    &__textes {
-      width: 345px;
-      &:hover {
-        .hidden {
-          width: 60px;
-          i {
-            animation: rotation 600ms ease-in-out forwards;
-          }
-        }
+  /* ---- Media queries pour les grands écrans ---- */
+  @media screen and (min-width: 1366px) {
+    .restaurants {
+      .organisation {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        @include largeur(95%);
+        @include marges(auto);
+      }
+      .carte {
+        @include largeur(22%);
+        @include marges(40px auto);
       }
     }
   }
 }
-#livret {
-  @include disposition(flex, row, space-around, flex-start);
-  margin-top: 30px;
-}
-
-.foot {
-  h2 {
-    text-align: center;
-    font-size: 28px;
-  }
-
-  &__list {
-    @include marges;
-    @include disposition(flex, row, space-evenly, flex-start);
-
-    &__puce {
-      @include largeur(45%);
-
-      a {
-        text-align: center;
-        display: flex;
-        justify-content: center;
-      }
-    }
-  }
-}
-
 /* ---- Media queries pour les grands écrans ---- */
 @media screen and (min-width: 1366px) {
   .restaurants {
