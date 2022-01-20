@@ -262,7 +262,7 @@ h3 {
 
 .list {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   align-items: center;

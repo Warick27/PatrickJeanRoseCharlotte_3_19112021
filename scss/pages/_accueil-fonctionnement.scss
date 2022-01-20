@@ -6,7 +6,7 @@
   }
 }
 .list {
-  @include disposition(flex, row, center, center);
+  @include disposition(flex, column, center, center);
   align-items: center;
   @include marges(10px);
   @include paddes(10px);
