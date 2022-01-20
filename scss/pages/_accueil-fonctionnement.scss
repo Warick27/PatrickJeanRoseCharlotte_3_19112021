@@ -1,0 +1,55 @@
+.indication {
+  @include marges(50px 0);
+
+  h2 {
+    @include marges(20px);
+  }
+}
+.list {
+  @include disposition(flex, row, center, center);
+  align-items: center;
+  @include marges(10px);
+  @include paddes(10px);
+
+  :hover {
+    background-color: lighten($primaire, 34);
+
+    .fas {
+      color: $primaire;
+    }
+  }
+
+  &__line {
+    @include fontsecondaire;
+    margin-right: -15px;
+    color: white;
+    background-color: $primaire;
+    @include bordure(2px, solid, $primaire);
+    @include rayon(25px);
+    @include paddes(5px 9px);
+    z-index: 1;
+
+    &--space {
+      @include disposition(flex, row, flex-start, flex-start);
+      align-items: center;
+      @include largeur(100%);
+      @include rayon(25px 25px);
+      @include paddes(25px 40px);
+      background-color: #f6f6f6;
+      @include ombre;
+      &:hover {
+        @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
+      }
+
+      .fas {
+        font-size: 20px;
+        color: darken(#eaeaea, 40);
+      }
+
+      p {
+        margin-left: 25px;
+        font-weight: 600;
+      }
+    }
+  }
+}

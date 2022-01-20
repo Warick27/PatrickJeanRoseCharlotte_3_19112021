@@ -1,0 +1,62 @@
+@mixin fontprimaire {
+  font-family: "Shrikhand", sans-serif;
+}
+@mixin fontsecondaire {
+  font-family: "Roboto", sans-serif;
+}
+@mixin disposition(
+  $type: flex,
+  $sens: column,
+  $justif: flex-start,
+  $align: flex-start
+) {
+  display: $type;
+  flex-direction: $sens;
+  justify-content: $justif;
+  align-content: $align;
+}
+@mixin marges($marg: 10px) {
+  margin: $marg;
+}
+@mixin paddes($pad: 10px) {
+  padding: $pad;
+}
+@mixin largeur($large: 100%) {
+  width: $large;
+}
+@mixin hauteur($haute: 100%) {
+  height: $haute;
+}
+@mixin localisation($local: absolute, $abscisse: 0, $ordonne: 0) {
+  position: $local;
+  top: $abscisse;
+  left: $ordonne;
+}
+@mixin bordure($bdwidth: 1px, $bdstyle: solid, $bdcolor: #eaeaea) {
+  border: $bdwidth $bdstyle $bdcolor;
+}
+@mixin rayon($bord) {
+  border-radius: $bord;
+}
+@mixin ombre(
+  $horizon: 0px,
+  $vertical: 4px,
+  $diffus: 10px,
+  $longueur: 1px,
+  $couleur: lighten(grey, 33)
+) {
+  box-shadow: $horizon $vertical $diffus $longueur $couleur;
+}
+
+/* ---- Partie du site ---- */
+@mixin coeur {
+  background: -webkit-linear-gradient($primaire, $secondaire);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+@mixin animation($name, $duration, $method) {
+  animation: $name $duration $method;
+}

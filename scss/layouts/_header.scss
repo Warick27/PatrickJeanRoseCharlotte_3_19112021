@@ -1,0 +1,16 @@
+.top {
+  @include marges(15px);
+  text-align: center;
+}
+.top_bis {
+  @include disposition(flex, row, flex-start, flex-start);
+  align-items: center;
+  @include marges(15px);
+  h1 {
+    text-align: center;
+    @include marges(auto);
+  }
+  .fas {
+    color: black;
+  }
+}

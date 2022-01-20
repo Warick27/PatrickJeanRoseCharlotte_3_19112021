@@ -1,0 +1,158 @@
+.contenu {
+  position: relative;
+  background-color: #f6f6f6;
+  padding-bottom: 30px;
+
+  &__bannière {
+    img {
+      @include largeur;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  &__titre {
+    position: absolute;
+    top: 240px;
+    @include largeur;
+    @include rayon(15px 15px 0 0);
+    @include paddes(0 20px);
+    @include disposition(flex, row, space-between, center);
+    align-items: center;
+    background-color: #f6f6f6;
+    .far {
+      font-size: 24px;
+      margin-right: 10px;
+
+      &:active {
+        @include coeur;
+        @include animation(coloration, 200ms, forwards);
+      }
+      @keyframes coloration {
+        0% {
+          opacity: 0;
+          font-size: 40px;
+          margin-left: -16px;
+        }
+        50% {
+          opacity: 0.5;
+          font-size: 32px;
+          margin-left: -8px;
+        }
+        100% {
+          opacity: 1;
+          font-size: 24px;
+          margin-left: 0;
+        }
+      }
+    }
+    &:checked {
+      @include coeur;
+    }
+  }
+
+  &__menu {
+    background-color: #f6f6f6;
+    margin-top: 20px;
+    @include disposition;
+
+    h2 {
+      font-weight: 400;
+      font-size: 16px;
+      border-bottom: 3px solid $tertiaire;
+      @include largeur(fit-content);
+      @include marges(0 15px 10px);
+      padding-bottom: 10px;
+    }
+  }
+  .entree {
+    animation: ouverture 1000ms 0.2s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  .plats {
+    animation: ouverture 1000ms 0.4s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  .desserts {
+    animation: ouverture 1000ms 0.6s ease-in-out forwards;
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  &__composition {
+    &__textes {
+      @include disposition(flex, row, space-between, flex-start);
+      background-color: white;
+      @include marges(12px);
+      @include rayon(15px);
+      @include ombre;
+      overflow: hidden;
+      &:active {
+        @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
+        .hidden {
+          width: 60px;
+          i {
+            animation: rotation 600ms ease-in-out forwards;
+          }
+        }
+      }
+      &--taille {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      p {
+        @include marges(12px);
+      }
+      &--style {
+        font-weight: 600;
+        font-size: 16px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      &--plus {
+        font-weight: 300;
+        font-size: 14.5px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+      &--prix {
+        height: fit-content;
+        display: flex;
+        align-self: flex-end;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+@keyframes rotation {
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+@keyframes ouverture {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.hidden {
+  @include disposition(flex, row, center, center);
+  flex-shrink: 0;
+  align-items: center;
+  color: white;
+  background-color: $tertiaire;
+  transition: width 500ms ease-in-out;
+  @include rayon(0 15px 15px 0);
+  width: 0;
+
+  i {
+    transform: rotate(0);
+  }
+}
