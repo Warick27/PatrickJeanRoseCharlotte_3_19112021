@@ -573,6 +573,77 @@ h3 {
   transform: rotate(0);
 }
 
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .indication {
+    width: 400px;
+    margin: auto;
+    margin-bottom: 30px;
+  }
+  .indication h2 {
+    text-align: center;
+  }
+
+  .restaurants {
+    padding-top: 10px;
+  }
+  .restaurants h2 {
+    text-align: center;
+  }
+  .restaurants .organisation {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
+  }
+  .restaurants .carte {
+    width: 300px;
+    margin: 20px auto;
+  }
+
+  .foot h2 {
+    text-align: center;
+    font-size: 28px;
+  }
+  .foot__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: flex-start;
+    flex-wrap: wrap;
+  }
+  .foot__list__puce {
+    width: 45%;
+  }
+  .foot__list__puce a {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ---- pages Restaurants ---- */
+  .contenu__titre {
+    justify-content: center;
+    align-content: space-between;
+  }
+  .contenu__titre h1 {
+    margin-right: 40px;
+    font-size: 28px;
+  }
+  .contenu__menu h2 {
+    align-self: center;
+  }
+  .contenu__composition {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    width: 90%;
+  }
+  .contenu__composition__textes {
+    width: 100%;
+  }
+}
 .indication h2 {
   text-align: center;
 }
@@ -707,77 +778,6 @@ h3 {
   .restaurants .carte {
     width: 22%;
     margin: 40px auto;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 992px) {
-  .indication {
-    width: 400px;
-    margin: auto;
-    margin-bottom: 30px;
-  }
-  .indication h2 {
-    text-align: center;
-  }
-
-  .restaurants {
-    padding-top: 10px;
-  }
-  .restaurants h2 {
-    text-align: center;
-  }
-  .restaurants .organisation {
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 85%;
-    margin: auto;
-  }
-  .restaurants .carte {
-    width: 300px;
-    margin: 20px auto;
-  }
-
-  .foot h2 {
-    text-align: center;
-    font-size: 28px;
-  }
-  .foot__list {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-content: flex-start;
-    flex-wrap: wrap;
-  }
-  .foot__list__puce {
-    width: 45%;
-  }
-  .foot__list__puce a {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* ---- pages Restaurants ---- */
-  .contenu__titre {
-    justify-content: center;
-    align-content: space-between;
-  }
-  .contenu__titre h1 {
-    margin-right: 40px;
-    font-size: 28px;
-  }
-  .contenu__menu h2 {
-    align-self: center;
-  }
-  .contenu__composition {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    margin: auto;
-    width: 90%;
-  }
-  .contenu__composition__textes {
-    width: 100%;
   }
 }
 /* Reset CSS*/
