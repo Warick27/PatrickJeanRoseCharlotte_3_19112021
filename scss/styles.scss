@@ -776,30 +776,6 @@ h3 {
       }
     }
   }
-
-  .foot {
-    h2 {
-      text-align: center;
-      font-size: 28px;
-    }
-
-    &__list {
-      @include marges;
-      @include disposition(flex, row, space-evenly, flex-start);
-
-      &__puce {
-        @include largeur(45%);
-
-        a {
-          text-align: center;
-          display: flex;
-          justify-content: center;
-        }
-      }
-    }
-  }
-  /* ---- pages Restaurants ---- */
-
   .contenu {
     &__titre {
       justify-content: center;
@@ -855,19 +831,48 @@ h3 {
     }
   }
   #livret {
-    @include disposition(flex, row, space-between, flex-start);
+    @include disposition(flex, row, space-around, flex-start);
     margin-top: 30px;
+  }
+
+  .foot {
+    h2 {
+      text-align: center;
+      font-size: 28px;
+    }
+
+    &__list {
+      @include marges;
+      @include disposition(flex, row, space-evenly, flex-start);
+
+      &__puce {
+        @include largeur(45%);
+
+        a {
+          text-align: center;
+          display: flex;
+          justify-content: center;
+        }
+      }
+    }
   }
 }
 
 /* ---- Media queries pour les grands écrans ---- */
 @media screen and (min-width: 1366px) {
-  body {
-    margin: auto;
-    width: 1366px;
-  }
-  html {
-    margin: 0;
+  .restaurants {
+    .organisation {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      @include largeur(95%);
+      @include marges(auto);
+    }
+
+    .carte {
+      @include largeur(22%);
+      @include marges(40px auto);
+    }
   }
 }
 @import "reset.scss";
