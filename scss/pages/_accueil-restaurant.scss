@@ -34,20 +34,6 @@
         color: black;
       }
 
-      .far {
-        font-size: 24px;
-        margin-right: 10px;
-
-        &:active {
-          animation: progression 500ms ease-in-out forwards;
-        }
-        @keyframes progression {
-          100% {
-            @include coeur;
-          }
-        }
-      }
-
       &__info {
         :nth-child(-n + 2) {
           @include marges(5px);
@@ -67,6 +53,7 @@
   .picto {
     position: relative;
     height: 179px;
+
     :last-child {
       position: absolute;
       top: 15px;
@@ -79,9 +66,11 @@
       font-size: 14px;
     }
   }
+
   .photo {
     height: 179px;
   }
+
   img,
   .bannière {
     @include largeur;

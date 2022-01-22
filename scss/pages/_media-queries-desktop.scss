@@ -31,18 +31,6 @@
     .carte {
       @include largeur(450px);
       @include marges(40px auto);
-      &__caption {
-        .far {
-          &:hover {
-            animation: progression 250ms ease-in-out forwards;
-          }
-          @keyframes progression {
-            100% {
-              @include coeur;
-            }
-          }
-        }
-      }
     }
   }
   .contenu {
@@ -52,29 +40,6 @@
       h1 {
         margin-right: 40px;
         font-size: 28px;
-      }
-      .far {
-        &:hover {
-          @include coeur;
-          @include animation(checked, 500ms, ease-in-out);
-        }
-        @keyframes checked {
-          0% {
-            opacity: 0;
-            font-size: 40px;
-            margin-left: -16px;
-          }
-          50% {
-            opacity: 0.5;
-            font-size: 32px;
-            margin-left: -8px;
-          }
-          100% {
-            opacity: 1;
-            font-size: 24px;
-            margin-left: 0;
-          }
-        }
       }
     }
 

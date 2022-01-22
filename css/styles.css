@@ -1,13 +1,12 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
-/* ---- Partie du site ---- */
 .loading {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-content: flex-end;
-  width: 100%;
+  width: auto;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -65,6 +64,7 @@
   position: absolute;
   top: 60%;
   left: 48%;
+  transform: translate(-50%, -60%);
   opacity: 0;
   animation: load 3s linear backwards;
   border-radius: 50%;
@@ -108,6 +108,79 @@
     opacity: 1;
   }
 }
+.btn {
+  width: fit-content;
+  padding: 15px 20px;
+  height: 50px;
+  border-radius: 25px 25px;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  align-self: center;
+  background: linear-gradient(to bottom right, #ff79da, 60%, #965add);
+  border: none;
+  margin: 10px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px 1px #d4d4d4;
+}
+.btn:hover {
+  background: linear-gradient(to bottom right, #ff93e1, 60%, #a16be0);
+  box-shadow: 0 4px 10px 1px #a6a6a6;
+}
+.btn__commande {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}
+.btn__commande--look {
+  width: 175px;
+}
+
+.fa-heart {
+  font-size: 24px;
+  margin-right: 10px;
+}
+@media screen and (max-width: 992px) {
+  .fa-heart:active {
+    background: -webkit-linear-gradient(#9356dc, #ff79da);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: checked 350ms ease-in-out;
+  }
+}
+@media screen and (min-width: 992px) {
+  .fa-heart:hover {
+    background: -webkit-linear-gradient(#9356dc, #ff79da);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    animation: checked 350ms ease-in-out;
+  }
+}
+@keyframes checked {
+  0% {
+    opacity: 0;
+    font-size: 18px;
+    margin-left: 6px;
+  }
+  50% {
+    opacity: 0.5;
+    font-size: 21px;
+    margin-left: 3px;
+  }
+  100% {
+    opacity: 1;
+    font-size: 24px;
+    margin-left: 0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -166,6 +239,7 @@ h3 {
   font-weight: 400;
   margin: 10px;
   color: white;
+  width: auto;
 }
 .foot__list__puce a {
   color: white;
@@ -223,46 +297,17 @@ h3 {
   color: gray;
 }
 
-.btn {
-  margin: auto;
-  color: blue;
-}
-.btn--style {
-  padding: 15px;
-  height: 50px;
-  border-radius: 25px 25px;
-  font-family: "Roboto", sans-serif;
-  color: white;
-  background: linear-gradient(to bottom right, #ff79da, 60%, #965add);
-  border: none;
-  margin: 10px;
-  cursor: pointer;
-  box-shadow: 0px 4px 10px 1px #d4d4d4;
-}
-.btn--style:hover {
-  background: linear-gradient(to bottom right, #ff93e1, 60%, #a16be0);
-  box-shadow: 0 4px 10px 1px #a6a6a6;
-}
-.btn__commande {
-  margin: 30px;
-  display: flex;
-  justify-content: center;
-  width: auto;
-}
-.btn__commande--look {
-  width: 175px;
-}
-
 .indication {
   margin: 50px 0;
 }
 .indication h2 {
   margin: 20px;
+  width: auto;
 }
 
 .list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-content: center;
   align-items: center;
@@ -354,22 +399,6 @@ h3 {
   font-family: "Roboto", sans-serif;
   color: black;
 }
-.restaurants .carte__caption .far {
-  font-size: 24px;
-  margin-right: 10px;
-}
-.restaurants .carte__caption .far:active {
-  animation: progression 500ms ease-in-out forwards;
-}
-@keyframes progression {
-  100% {
-    background: -webkit-linear-gradient(#9356dc, #ff79da);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-  }
-}
 .restaurants .carte__caption__info :nth-child(-n+2) {
   margin: 5px;
   font-size: 17px;
@@ -428,42 +457,6 @@ h3 {
   align-content: center;
   align-items: center;
   background-color: #f6f6f6;
-}
-.contenu__titre .far {
-  font-size: 24px;
-  margin-right: 10px;
-}
-.contenu__titre .far:active {
-  background: -webkit-linear-gradient(#9356dc, #ff79da);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
-  animation: coloration 200ms forwards;
-}
-@keyframes coloration {
-  0% {
-    opacity: 0;
-    font-size: 40px;
-    margin-left: -16px;
-  }
-  50% {
-    opacity: 0.5;
-    font-size: 32px;
-    margin-left: -8px;
-  }
-  100% {
-    opacity: 1;
-    font-size: 24px;
-    margin-left: 0;
-  }
-}
-.contenu__titre:checked {
-  background: -webkit-linear-gradient(#9356dc, #ff79da);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: bold;
 }
 .contenu__menu {
   background-color: #f6f6f6;
@@ -547,7 +540,7 @@ h3 {
 
 @keyframes rotation {
   100% {
-    transform: rotate(720deg);
+    transform: rotate(1turn);
   }
 }
 @keyframes ouverture {
@@ -674,18 +667,6 @@ h3 {
     width: 450px;
     margin: 40px auto;
   }
-  .restaurants .carte__caption .far:hover {
-    animation: progression 250ms ease-in-out forwards;
-  }
-  @keyframes progression {
-    100% {
-      background: -webkit-linear-gradient(#9356dc, #ff79da);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: bold;
-    }
-  }
 
   .contenu__titre {
     justify-content: center;
@@ -694,31 +675,6 @@ h3 {
   .contenu__titre h1 {
     margin-right: 40px;
     font-size: 28px;
-  }
-  .contenu__titre .far:hover {
-    background: -webkit-linear-gradient(#9356dc, #ff79da);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: bold;
-    animation: checked 500ms ease-in-out;
-  }
-  @keyframes checked {
-    0% {
-      opacity: 0;
-      font-size: 40px;
-      margin-left: -16px;
-    }
-    50% {
-      opacity: 0.5;
-      font-size: 32px;
-      margin-left: -8px;
-    }
-    100% {
-      opacity: 1;
-      font-size: 24px;
-      margin-left: 0;
-    }
   }
   .contenu__menu h2 {
     align-self: center;

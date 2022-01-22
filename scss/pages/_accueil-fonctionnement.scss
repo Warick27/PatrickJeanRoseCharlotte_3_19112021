@@ -3,10 +3,12 @@
 
   h2 {
     @include marges(20px);
+    width: auto;
   }
 }
+
 .list {
-  @include disposition(flex, column, center, center);
+  @include disposition(flex, row, center, center);
   align-items: center;
   @include marges(10px);
   @include paddes(10px);
@@ -37,6 +39,7 @@
       @include paddes(25px 40px);
       background-color: #f6f6f6;
       @include ombre;
+
       &:hover {
         @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
       }
