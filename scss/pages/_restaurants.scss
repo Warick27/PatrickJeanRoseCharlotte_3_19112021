@@ -20,6 +20,17 @@
     @include disposition(flex, row, space-between, center);
     align-items: center;
     background-color: #f6f6f6;
+    @media screen and (min-width: 768px) {
+      justify-content: center;
+      align-content: space-between;
+    }
+
+    h1 {
+      @media screen and (min-width: 768px) {
+        margin-right: 40px;
+        font-size: 28px;
+      }
+    }
   }
 
   &__menu {
@@ -34,6 +45,9 @@
       @include largeur(fit-content);
       @include marges(0 15px 10px);
       padding-bottom: 10px;
+      @media screen and (min-width: 768px) {
+        align-self: center;
+      }
     }
   }
 
@@ -56,6 +70,14 @@
   }
 
   &__composition {
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      @include disposition(flex, column, center, center);
+      @include marges(auto);
+      @include largeur(90%);
+    }
+    @media screen and (min-width: 992px) {
+      @include disposition(flex, column, flex-start, flex-start);
+    }
     &__textes {
       @include disposition(flex, row, space-between, flex-start);
       background-color: white;
@@ -63,6 +85,23 @@
       @include rayon(15px);
       @include ombre;
       overflow: hidden;
+      @media screen and (min-width: 768px) and (max-width: 992px) {
+        @include largeur(100%);
+      }
+      @media screen and (min-width: 992px) {
+        @include largeur(345px);
+      }
+      @media screen and (min-width: 992px) {
+        &:hover {
+          .hidden {
+            width: 60px;
+            i {
+              animation: rotation 600ms ease-in-out forwards;
+            }
+          }
+        }
+      }
+
       &:active {
         @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
         .hidden {
@@ -119,6 +158,13 @@
   100% {
     opacity: 1;
     transform: translateY(0px);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #livret {
+    @include disposition(flex, row, space-around, flex-start);
+    margin-top: 30px;
   }
 }
 

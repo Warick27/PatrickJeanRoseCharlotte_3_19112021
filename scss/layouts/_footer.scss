@@ -10,15 +10,35 @@
     @include marges;
     color: white;
     @include largeur(auto);
+    @media screen and (min-width: 768px) {
+      text-align: center;
+      font-size: 28px;
+    }
   }
 
   &__list {
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      @include disposition(flex, row, space-evenly, flex-start);
+      flex-wrap: wrap;
+    }
+    @media screen and (min-width: 992px) {
+      @include marges;
+      @include disposition(flex, row, space-evenly, flex-start);
+    }
+
     &__puce {
+      @media screen and (min-width: 768px) {
+        @include largeur(45%);
+      }
+
       a {
         color: white;
         @include fontsecondaire;
         @include disposition(flex, row, flex-start, flex-start);
         @include marges;
+        @media screen and (min-width: 768px) {
+          justify-content: center;
+        }
       }
 
       a {

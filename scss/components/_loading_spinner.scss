@@ -9,6 +9,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-weight: bold;
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    top: 40%;
+  }
 }
 
 .lettre {
@@ -58,19 +61,23 @@
 
 .loader {
   display: block;
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin: auto;
   width: 50px;
   height: 50px;
   border: 10px solid #f6f6f6;
   position: absolute;
-  top: 60%;
-  left: 48%;
+  top: 57%;
+  left: 45%;
   transform: translate(-50%, -60%);
   opacity: 0;
   animation: load 3s linear backwards;
   border-radius: 50%;
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    top: 46%;
+    left: 47%;
+  }
+  @media screen and (min-width: 992px) {
+    left: 49%;
+  }
 }
 
 @keyframes load {

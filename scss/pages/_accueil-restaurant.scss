@@ -2,13 +2,29 @@
   background-color: #f6f6f6;
   @include disposition(flex, column, space-between, flex-start);
   @include paddes(30px 4px);
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    padding-top: 10px;
+  }
 
   h2 {
     @include marges(20px);
+    @media screen and (min-width: 768px) {
+      text-align: center;
+    }
   }
 
   .organisation {
     @include disposition(flex, column, space-between, flex-start);
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      @include marges(auto 10px);
+    }
+    @media screen and (min-width: 992px) {
+      justify-content: space-around;
+      @include largeur(95%);
+    }
   }
 
   .carte {
@@ -18,6 +34,20 @@
     @include marges(10px auto);
     @include rayon(25px 25px);
     @include ombre;
+    @media screen and (min-width: 768px) and (max-width: 992px) {
+      @include largeur(48%);
+      @include marges(20px auto);
+    }
+    @media screen and (min-width: 992px) {
+      @include marges(40px auto);
+    }
+    @media screen and (min-width: 992px) and (max-width: 1366px) {
+      @include largeur(450px);
+    }
+    @media screen and (min-width: 1366px) {
+      @include largeur(22%);
+    }
+
     &:hover {
       @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
     }
@@ -50,6 +80,7 @@
       }
     }
   }
+
   .picto {
     position: relative;
     height: 179px;

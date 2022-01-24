@@ -1,9 +1,24 @@
 .indication {
   @include marges(50px 0);
+  @media screen and (min-width: 768px) and (max-width: 992px) {
+    width: 450px;
+    @include marges(auto);
+    margin-bottom: 30px;
+  }
 
   h2 {
     @include marges(20px);
     width: auto;
+    @media screen and (min-width: 768px) {
+      text-align: center;
+    }
+  }
+  @media screen and (min-width: 992px) {
+    ul {
+      @include disposition(flex, row, space-evenly, flex-start);
+      @include largeur(90%);
+      @include marges(auto);
+    }
   }
 }
 
@@ -12,6 +27,9 @@
   align-items: center;
   @include marges(10px);
   @include paddes(10px);
+  @media screen and (min-width: 992px) {
+    @include largeur(fit-content);
+  }
 
   :hover {
     background-color: lighten($primaire, 34);
