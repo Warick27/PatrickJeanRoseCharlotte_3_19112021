@@ -94,7 +94,7 @@
       @media screen and (min-width: 992px) {
         &:hover {
           .hidden {
-            width: 60px;
+            @include largeur(60px);
             i {
               animation: rotation 600ms ease-in-out forwards;
             }
@@ -105,7 +105,7 @@
       &:active {
         @include ombre(0, 4px, 10px, 1px, lighten(grey, 15));
         .hidden {
-          width: 60px;
+          @include largeur(60px);
           i {
             animation: rotation 600ms ease-in-out forwards;
           }
@@ -113,7 +113,7 @@
       }
 
       &--taille {
-        width: 100%;
+        @include largeur(100%);
         overflow: hidden;
         white-space: nowrap;
       }

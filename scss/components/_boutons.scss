@@ -33,7 +33,7 @@
     justify-content: center;
 
     &--look {
-      width: 175px;
+      @include largeur(175px);
     }
   }
 }
